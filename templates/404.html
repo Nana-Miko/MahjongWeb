@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路由错误</title>
+    <link rel="stylesheet" href="/static/tabler/css/tabler.css">
+    <link rel="stylesheet" href="/static/tabler/css/tabler-flags.css">
+    <link rel="stylesheet" href="/static/tabler/css/tabler-payments.css">
+    <link rel="stylesheet" href="/static/tabler/css/tabler-vendors.css">
+    <script src="/static/tabler/js/tabler.js"></script>
+</head>
+<body>
+<div class="empty">
+  <div class="empty-header">404</div>
+  <p class="empty-title">完蛋...来到了不存在的次元</p>
+  <p class="empty-subtitle text-muted">
+    请检查你的网络路径是否正确
+  </p>
+  <div class="empty-action">
+    <a href="/" class="btn btn-primary">
+      带我回去！
+    </a>
+  </div>
+    <div id="count" class="empty-action">
+
+    </div>
+</div>
+
+</body>
+<script>
+    fetch('api/not_found').then(response => response.json()).then(data=>{
+        const count = document.getElementById('count')
+        count.textContent = "这个次元已经被访问"+data.msg+"次了..."
+    })
+</script>
+</html>

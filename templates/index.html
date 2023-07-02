@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>麻将战局登记</title>
+    <link rel="stylesheet" href="/static/tabler/css/tabler.css">
+    <link rel="stylesheet" href="/static/tabler/css/tabler-flags.css">
+    <link rel="stylesheet" href="/static/tabler/css/tabler-payments.css">
+    <link rel="stylesheet" href="/static/tabler/css/tabler-vendors.css">
+    <script src="/static/tabler/js/tabler.js"></script>
+    <script src="/static/my/js/onclickEvent.js"></script>
+    <script src="/static/my/js/runtime.js"></script>
+    <script src="/static/my/js/inner.js"></script>
+    <script src="/static/my/js/limit_table.js"></script>
+    <script src="/static/my/js/utils.js"></script>
+</head>
+<body>
+<div class="page">
+    <header class="navbar navbar-expand-sm navbar-light d-print-none">
+        <div class="container-xl">
+            <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+                麻将战局登记
+            </h1>
+
+            <div class="navbar-nav flex-row order-md-last">
+                <div class="nav-item">
+                    <a href="#" class="nav-link d-flex lh-1 text-reset p-0">
+                        <span class="avatar avatar-sm" style="background-image: url(/static/my/img/group_img.jpg)"></span>
+                        <div class="d-none d-xl-block ps-2">
+                            <div>Africa Union</div>
+                            <div class="mt-1 small text-muted">Only For Africa Union</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="page-wrapper">
+        <div class="page-body">
+            <div class="container-xl">
+                <div class="row row-deck row-cards">
+                    <div id="carousel-sample" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel-sample" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel-sample" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#carousel-sample" data-bs-slide-to="2"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" alt="" src="/static/my/img/bg/bg_1.png" />
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" alt="" src="/static/my/img/bg/bg_2.png" />
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" alt="" src="/static/my/img/bg/bg_3.png" />
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" data-bs-target="#carousel-sample" role="button" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" data-bs-target="#carousel-sample" role="button" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </a>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="img-responsive img-responsive-21x9 card-img-top" style="background-image: url(/static/my/img/add_user.jpg)"></div>
+                            <button onclick="user_default()" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#add-user-modal">
+                                雀士登记
+                            </button>
+                            <div class="modal" id="add-user-callback-modal" tabindex="-1">
+                                <!--此处由JS添加-->
+                            </div>
+                            <div class="modal" id="add-user-modal" tabindex="-1">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">雀士登记</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="mb-3">
+                                                <label class="form-label">雀士名字</label>
+                                                <input type="text" class="form-control" name="user-name" placeholder="你的雀士名字" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">绑定的QQ</label>
+                                                <input type="text" class="form-control" name="user-qq" placeholder="绑定的QQ号" />
+                                            </div>
+
+                                        </div>
+
+                                    <div class="modal-footer">
+                                        <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+                                            取消
+                                        </a>
+                                        <button  onclick="user_register()" type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#add-user-callback-modal">
+                                            注册
+                                        </button>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="img-responsive img-responsive-21x9 card-img-top" style="background-image: url(/static/my/img/add_rule.jpg)"></div>
+                            <button onclick="rule_default()" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#add-rule-modal">
+                                规则添加
+                            </button>
+                            <div class="modal" id="add-rule-callback-modal" tabindex="-1">
+                                <!--此处由JS添加-->
+                            </div>
+                            <div class="modal" id="add-rule-modal" tabindex="-1">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">麻将规则添加</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="mb-3">
+                                                <label class="form-label">规则名称</label>
+                                                <input type="text" class="form-control" name="rule-name" placeholder="规则名称" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">游玩人数</label>
+                                                <input type="number" class="form-control" name="rule-number" value="4" />
+                                            </div>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+                                                取消
+                                            </a>
+                                            <button  onclick="rule_register()" type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#add-rule-callback-modal">
+                                                添加
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="img-responsive img-responsive-21x9 card-img-top" style="background-image: url(/static/my/img/add_game.jpg)"></div>
+                            <button onclick="game_default()" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#add-game-modal">
+                                对局记录
+                            </button>
+                            <div class="modal" id="add-game-callback-modal" tabindex="-1">
+                                <!--此处由JS添加-->
+                            </div>
+                            <div class="modal" id="add-game-modal" tabindex="-1">
+                                <!--此处由JS添加和修改-->
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">对局记录</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="mb-3">
+                                                <label class="form-label">初始点数</label>
+                                                <input id="starting-points" name="starting-points" class="form-control" type="number">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">对局规则</label>
+                                                <input id="rule-name" name="rule-name" class="form-control" list="rules" placeholder="输入规则名称">
+                                                <div id="rule-error-tips" class="invalid-feedback" style="display: none">无效的规则</div>
+                                                {rules}
+                                            </div>
+                                            <div class="mb-3">
+                                                <fieldset id="user-fieldset" class="form-fieldset" style="display: none">
+                                                    <div class="mb-3">
+                                                        <label class="form-label required">雀士名称</label>
+                                                    </div>
+                                                </fieldset>
+                                                {users}
+                                            </div>
+                                            <label class="form-label">结束时间</label>
+                                            <input id="end-time" name="end-time" class="form-control" type="datetime-local">
+                                            <label class="form-label">对局额外备注</label>
+                                            <textarea class="form-control" id="note" name="note" placeholder="..."></textarea>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+                                                取消
+                                            </a>
+                                            <button  onclick="game_register()" type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#add-game-callback-modal">
+                                                添加
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--此处由JS添加和修改-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body" style="height: auto">
+                                <h2 class="mb-3">时间线</h2>
+                                <div class="hr-text"></div>
+                                <ul id="time-line" class="timeline timeline-simple">
+                                    <li class="timeline-event">
+                                        <div class="card timeline-event-card">
+                                            <div class="card-body">
+                                                <div class="text-muted float-end">10 小时前</div>
+                                                <h4>新雀士登记</h4>
+                                                <p class="text-muted">新雀士名称：3A酱</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="timeline-event">
+                                        <div class="card timeline-event-card">
+                                            <div class="card-body">
+                                                <div class="text-muted float-end">2 小时前</div>
+                                                <h4>新规则添加</h4>
+                                                <p class="text-muted">新规则名称：我超！</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="card">
+                            <div  id="game-limit-table" class="card-body" style="height: auto">
+                                <h2 class="mb-3">最近的对局</h2>
+                                <div class="hr-text"></div>
+                                <div class="table-responsive">
+                                    <table id="last-game" class="table table-vcenter">
+                                        <thead>
+                                        <tr>
+                                            <th>对局ID</th>
+                                            <th>对局规则</th>
+                                            <th>初始点数</th>
+                                            <th>结束时间</th>
+                                            <th>一位雀士</th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody id="last-game-tbody">
+
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12" >
+                        <div class="card">
+                            <div  id="user-limit-table" class="card-body" style="height: auto">
+                                <h2 class="mb-3">RANKING</h2>
+                                <div class="hr-text"></div>
+                                <div class="table-responsive">
+                                    <table id="user-ranking" class="table table-vcenter">
+                                        <thead>
+                                        <tr>
+                                            <th>雀士名称</th>
+                                            <th>段位</th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody id="user-ranking-tbody">
+
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer class="footer">
+    <div class="text-center">threeax@foxmail.com</div>
+    <div class="text-center">粤ICP备2023041754号</div>
+</footer>
+</body>
+<script>all_inner()</script>
+</html>

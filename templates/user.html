@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>雀士详情</title>
+  <link rel="stylesheet" href="/static/tabler/css/tabler.css">
+  <link rel="stylesheet" href="/static/tabler/css/tabler-flags.css">
+  <link rel="stylesheet" href="/static/tabler/css/tabler-payments.css">
+  <link rel="stylesheet" href="/static/tabler/css/tabler-vendors.css">
+  <script src="/static/apexcharts/js/apexcharts.js"></script>
+  <script src="/static/tabler/js/tabler.js"></script>
+  <script src="/static/my/js/user/user_info_inner.js" defer></script>
+  <script src="/static/my/js/limit_table.js"></script>
+  <script src="/static/my/js/utils.js"></script>
+</head>
+<body>
+<div class="page">
+  <header class="navbar navbar-expand-sm navbar-light d-print-none">
+    <div class="container-xl">
+      <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+        <a href="/"><</a>雀士详情
+      </h1>
+      <div class="navbar-nav flex-row order-md-last">
+        <div class="nav-item">
+          <a href="#" class="nav-link d-flex lh-1 text-reset p-0">
+            <span class="avatar avatar-sm" style="background-image: url(/static/my/img/group_img.jpg)"></span>
+            <div class="d-none d-xl-block ps-2">
+              <div>Africa Union</div>
+              <div class="mt-1 small text-muted">Only For Africa Union</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="page-wrapper">
+    <div class="page-body">
+      <div id="response-page" class="container-xl">
+        <div class="col-12">
+          <div class="card-lg">
+            <div class="card-body" style="height: 10rem">
+              <div class="text-center">
+                <h1 id="user-name"><div class="placeholder col-1"></div></h1>
+                <h5 id="user-win-ratio">胜率：null</h5>
+                <div id="score-title"><span class="badge bg-lime">初心</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card-lg"><div class="card-body"></div> </div>
+        </div>
+        <div class="col-12">
+          <div class="card card-lg">
+            <div class="card-body" style="height: auto">
+              <div class="datagrid">
+                <div class="datagrid-item">
+                  <div class="datagrid-title">雀士名称</div>
+                  <div id="user-name-mini" class="datagrid-content">Mika</div>
+                </div>
+                <div class="datagrid-item">
+                  <div class="datagrid-title">雀士QQ</div>
+                  <div id="user-qq" class="datagrid-content">1121917292</div>
+                </div>
+                <div class="datagrid-item">
+                  <div class="datagrid-title">总对局场次</div>
+                  <div id="matches" class="datagrid-content">1000</div>
+                </div>
+                <div class="datagrid-item">
+                  <div class="datagrid-title">总胜场</div>
+                  <div id="wins" class="datagrid-content">900</div>
+                </div>
+                <div class="datagrid-item">
+                  <div class="datagrid-title">最近一次对局时间</div>
+                  <div id="last-game-time" class="datagrid-content">2023/7/1 10:31</div>
+                </div>
+                <div class="datagrid-item">
+                  <div class="datagrid-title">最近一次对局顺位</div>
+                  <div id="last-game-ranking" class="datagrid-content">1位</div>
+                </div>
+                <div class="datagrid-item">
+                  <div class="datagrid-title">最近一次Rank变动</div>
+                  <div class="datagrid-content">
+                    <span id="last-game-score-offset" class="status status-green">
+                      +100
+                    </span>
+                  </div>
+                </div>
+                <div class="datagrid-item">
+                  <div class="datagrid-title">Rank分</div>
+                  <div id="score" class="datagrid-content">5000</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+            <div class="card-lg">
+              <div class="card-body">
+                <div class="card-title">
+                  <div class="text-center"><h3>常同桌雀士</h3></div>
+                  <div class="hr-text"></div>
+                </div>
+                <div class="row row-deck row-cards">
+                  <div class="col-4">
+                    <div class="card">
+                      <div class="card-body"style="height: 23rem">
+                        <div class="card-title">
+                          <div class="text-center"><h3 id="friendly-1">无</h3><h5 id="friendly-1-matches"></h5><h5 id="friendly-1-ratios"></h5></div>
+                        </div>
+                        <div id="chart-friendly-1-pie" class="chart-lg"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="card">
+                      <div class="card-body"style="height: 23rem">
+                        <div class="card-title">
+                          <div class="text-center"><h3 id="friendly-2">无</h3><h5 id="friendly-2-matches"></h5><h5 id="friendly-2-ratios"></h5></div>
+                        </div>
+                        <div id="chart-friendly-2-pie" class="chart-lg"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="card">
+                      <div class="card-body"style="height: 23rem">
+                        <div class="card-title">
+                          <div class="text-center"><h3 id="friendly-3">无</h3><h5 id="friendly-3-matches"></h5><h5 id="friendly-3-ratios"></h5></div>
+                        </div>
+                        <div id="chart-friendly-3-pie" class="chart-lg"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body" style="height: auto;">
+              <div class="card-title">
+                <div class="text-center"><h3>最近顺位</h3></div>
+                <div class="hr-text"></div>
+              </div>
+              <div id="chart-ranking-line" class="chart-lg"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card-lg"><div class="card-body"></div> </div>
+        </div>
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body" style="height: auto">
+              <div class="card-title">
+                <div class="card-title">
+                  <div class="text-center"><h3>大牌记录</h3></div>
+                  <div class="hr-text"></div>
+                </div>
+              </div>
+              <div id="yakuman-div" class="table-responsive">
+                <table id="yakuman" class="table table-vcenter">
+                  <thead>
+                  <tr>
+                    <th>役种</th>
+                    <th>完成次数</th>
+                  </tr>
+                  </thead>
+
+                  <tbody id="yakuman-tbody">
+
+                  </tbody>
+
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card-lg"><div class="card-body"></div> </div>
+        </div>
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body" style="height: auto">
+              <div class="card-title">
+                <div class="card-title">
+                  <div class="text-center"><h3>最近的对局</h3></div>
+                  <div class="hr-text"></div>
+                </div>
+              </div>
+
+              <div id="last-game-div" class="table-responsive">
+                <table id="last-game" class="table table-vcenter">
+                  <thead>
+                  <tr>
+                    <th>对局ID</th>
+                    <th>对局规则</th>
+                    <th>初始点数</th>
+                    <th>结束时间</th>
+                    <th>一位雀士</th>
+                  </tr>
+                  </thead>
+
+                  <tbody id="last-game-tbody">
+
+                  </tbody>
+
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="footer">
+  <div class="text-center">threeax@foxmail.com</div>
+  <div class="text-center">粤ICP备2023041754号</div>
+</footer>
+</body>
+
+
+</html>

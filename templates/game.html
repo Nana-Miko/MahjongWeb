@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对局详情</title>
+    <link rel="stylesheet" href="/static/tabler/css/tabler.css">
+    <link rel="stylesheet" href="/static/tabler/css/tabler-flags.css">
+    <link rel="stylesheet" href="/static/tabler/css/tabler-payments.css">
+    <link rel="stylesheet" href="/static/tabler/css/tabler-vendors.css">
+    <script src="/static/apexcharts/js/apexcharts.js"></script>
+    <script src="/static/tabler/js/tabler.js"></script>
+    <script src="/static/my/js/onclickEvent.js"></script>
+    <script src="/static/my/js/game/game_info_inner.js"></script>
+</head>
+<body>
+<div class="page">
+  <header class="navbar navbar-expand-sm navbar-light d-print-none">
+    <div class="container-xl">
+      <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+        <a href="/"><</a>对局详情
+      </h1>
+      <div class="navbar-nav flex-row order-md-last">
+        <div class="nav-item">
+          <a href="#" class="nav-link d-flex lh-1 text-reset p-0">
+            <span class="avatar avatar-sm" style="background-image: url(/static/my/img/group_img.jpg)"></span>
+            <div class="d-none d-xl-block ps-2">
+              <div>Africa Union</div>
+              <div class="mt-1 small text-muted">Only For Africa Union</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+    <div class="page-wrapper">
+        <div class="page-body">
+            <div class="container-xl">
+                <div class="col-12">
+                    <div class="card-lg">
+                        <div class="card-body" style="height: 10rem">
+                            <div class="text-center">
+                                <h1 id="rule-name"><div class="placeholder col-1"></div></h1>
+                                <h5 id="starting-points"><div class="placeholder col-2"></div></h5>
+                                <h5 id="end-time"><div class="placeholder col-3"></div></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card-lg">
+                        <div class="card-body" style="height: auto">
+                            <div class="row row-deck row-cards">
+                                <div class="col-4">
+                                    <div class="card">
+                                        <div class="card-title">
+                                            <div class="text-center" style="margin-top: 0.9rem"><h3>胜者</h3></div>
+                                            <div class="hr-text"></div>
+                                        </div>
+                                        <div id="winner-cbs" class="card-body-scrollable" style="height: 12rem">
+                                            <div class="text-center" ><h3>无</h3></div>
+                                        </div>
+                                        <div class="ribbon ribbon-top ribbon-start ribbon-bookmark bg-red">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="card">
+                                        <div class="card-title">
+                                            <div class="text-center" style="margin-top: 0.9rem"><h3>平者</h3></div>
+                                            <div class="hr-text"></div>
+                                        </div>
+                                        <div id="draw-cbs" class="card-body-scrollable" style="height: 12rem">
+                                            <div class="text-center" ><h3>无</h3></div>
+                                        </div>
+                                        <div class="ribbon ribbon-top ribbon-start ribbon-bookmark bg-black">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="card">
+                                        <div class="card-title">
+                                            <div class="text-center" style="margin-top: 0.9rem"><h3>败者</h3></div>
+                                            <div class="hr-text"></div>
+                                        </div>
+                                        <div id="loser-cbs" class="card-body-scrollable" style="height: 12rem">
+                                            <div class="text-center" ><h3>无</h3></div>
+                                        </div>
+                                        <div class="ribbon ribbon-top ribbon-start ribbon-bookmark bg-green">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body" style="height: auto">
+                            <div class="card-title">
+                                <div class="text-center"><h3>对局Ranking</h3></div>
+                                <div class="hr-text"></div>
+                            </div>
+                            <div class="row  row-cards">
+                                <div class="col-3">
+                                    <div class="card-lg">
+                                        <div class="card-body" style="height: auto">
+                                            <div id="chart-score-pie" class="chart-lg"><div class="spinner-grow" role="status"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-9">
+                                    <div class="card-lg">
+                                        <div class="card-body" style="height: auto">
+                                            <table class="table">
+                                                <thead>
+                                                <tr>
+                                                    <th scope="col">顺位</th>
+                                                    <th scope="col">雀士</th>
+                                                    <th scope="col">最终得点</th>
+                                                    <th scope="col">Rank得分</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="ranking-tbody">
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card-lg"><div class="card-body"></div> </div>
+                </div>
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body" style="height: auto">
+                            <div class="card-title">
+                                <div class="text-center"><h3>本场对局的大牌</h3></div>
+                                <div class="hr-text"></div>
+                            </div>
+                            <div class="card-body"><div id="chart-yakuman-bar" class="chart-lg"><div class="empty">
+                                <div class="empty-img"><img src="" height="128" alt="" />
+                                </div>
+                                <p class="empty-title">该对局没有大牌</p>
+                                <p class="empty-subtitle text-muted">
+                                    可以在下方添加
+                                </p>
+                            </div></div></div>
+
+                            <div onclick="yaku_default()" class="text-center"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add-yakuman-modal">
+                                添加大牌记录
+                            </button></div>
+                            <div class="modal" id="add-yakuman-callback-modal" tabindex="-1">
+                                <!--此处由JS添加-->
+                            </div>
+                            <div class="modal" id="add-yakuman-modal" tabindex="-1">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">添加大牌记录</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="mb-3">
+                                                <div id="yakuman-user" class="form-label">雀士名称</div>
+                                                <select id="yakuman-user-select" class="form-select">
+                                                    <option value="1">One</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">大牌名称</label>
+                                                <input type="text" class="form-control" id="yakuman-name" placeholder="..." />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">完成次数</label>
+                                                <input type="number" class="form-control" id="yakuman-count" value="1" />
+                                            </div>
+
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+                                                取消
+                                            </a>
+                                            <button  onclick="add_yaku()" type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#add-yakuman-callback-modal">
+                                                添加
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card-lg"><div class="card-body"></div> </div>
+                </div>
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body" style="height: auto">
+                            <div class="card-title">
+                                <div class="text-center"><h3>额外内容</h3></div>
+                                <div class="hr-text"></div>
+                            </div>
+                            <div class="row  row-cards">
+                                <div class="col-3" style="margin-top: 5rem">
+                                    <div class="card-lg card-stacked">
+                                        <div class="card-title">
+                                            <div class="text-center"><h3>对局备注</h3></div>
+                                        </div>
+                                        <div class="modal" id="add-note-callback-modal" tabindex="-1">
+                                            <!--此处由JS添加-->
+                                        </div>
+                                        <div id="note" class="card-body-scrollable" style="height: 15rem">
+                                            <div class="empty">
+                                                <div class="empty-img"><img src="" height="128" alt="" />
+                                                </div>
+                                                <p class="empty-title">该对局无备注</p>
+                                                <p class="empty-subtitle text-muted">
+                                                    是没有还是忘了？<br>或是服务器炸了？
+                                                </p>
+                                                <div class="empty-action">
+                                                    <button onclick="note_default()" data-bs-toggle="modal" data-bs-target="#add-note-modal" class="btn btn-primary">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                            <line x1="12" y1="5" x2="12" y2="19" />
+                                                            <line x1="5" y1="12" x2="19" y2="12" />
+                                                        </svg>
+                                                        创建备注
+                                                    </button>
+
+                                                    <div class="modal" id="add-note-modal" tabindex="-1">
+                                                        <div class="modal-dialog modal-lg" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title">备注创建</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="mb-3">
+                                                                        <label class="form-label">对局额外备注</label>
+                                                                        <textarea class="form-control" id="note-area" name="note" placeholder="..."></textarea>
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="modal-footer">
+                                                                    <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+                                                                        取消
+                                                                    </a>
+                                                                    <button  onclick="add_note()" type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#add-note-callback-modal">
+                                                                        创建
+                                                                    </button>
+
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-9">
+                                    <div class="card-lg">
+                                        <div id="img" class="card-body" style="height: auto">
+                                            <div class="empty">
+                                                <div class="empty-img"><img src="" height="128" alt="" />
+                                                </div>
+                                                <p class="empty-title">该对局没有纪念图片</p>
+                                                <p class="empty-subtitle text-muted">
+                                                    可以在下方上传
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card-lg"><div class="card-body"></div> </div>
+                </div>
+                <div class="col-12">
+                    <div class="card-lg">
+                        <div class="card-body" style="height: auto">
+                            <form class="dropzone" id="dropzone-img" action="." autocomplete="off" novalidate>
+                                <div class="fallback">
+                                    <input name="file" type="file" />
+                                </div>
+                                <div class="dz-message">
+                                    <h3>上传图片</h3>
+                                    <span class="dropzone-msg-desc">可以多次上传你喜欢的纪念图片</span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="text-center">threeax@foxmail.com</div>
+    <div class="text-center">粤ICP备2023041754号</div>
+</footer>
+</body>
+
+<link href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/libs/dropzone/dist/dropzone.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/libs/dropzone/dist/dropzone-min.js"></script>
+<script>game_info_inner()</script>
+</html>

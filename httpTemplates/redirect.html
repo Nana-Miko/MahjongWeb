@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>不安全的访问</title>
+    <link rel="stylesheet" href="/static/tabler/css/tabler.css">
+    <link rel="stylesheet" href="/static/tabler/css/tabler-flags.css">
+    <link rel="stylesheet" href="/static/tabler/css/tabler-payments.css">
+    <link rel="stylesheet" href="/static/tabler/css/tabler-vendors.css">
+    <script src="/static/tabler/js/tabler.js"></script>
+</head>
+<body>
+<div class="empty">
+    <div class="empty-header">不安全的访问</div>
+    <p class="empty-title">您正在尝试使用不安全的Http协议访问本网站</p>
+    <p id="tips" class="empty-subtitle text-muted">
+        3秒后为您重定向到Https
+    </p>
+    <div class="empty-action">
+        <a onclick="redirectToHTTPS()" href="#" class="btn btn-primary">
+            点击跳转
+        </a>
+    </div>
+</div>
+
+</body>
+<script>
+    var countdown = 3; // 倒计时初始值
+    const tipsElement = document.getElementById('tips');
+
+    // 更新提示文本和倒计时
+    function updateTips() {
+
+        if (countdown > 0) {
+            tipsElement.textContent = countdown + '秒后为您重定向到Https';
+            countdown--;
+        } else{
+            redirectToHTTPS();
+        }
+    }
+
+    // 执行重定向
+    function redirectToHTTPS() {
+        if (location.protocol !== 'https:') {
+            tipsElement.textContent = '正在重定向...';
+            clearInterval(timer); // 倒计时结束后清除计时器
+            location.href = 'https://' + location.hostname + location.pathname + location.search;
+        }
+    }
+
+    // 开始倒计时
+    var timer = setInterval(updateTips, 1000);
+
+</script>
+</html>
